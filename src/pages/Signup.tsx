@@ -25,8 +25,8 @@ const Signup = () => {
         setLoading(true);
         try {
             await api.post('/auth/signup', formData);
-            toast.success('Registration successful! Check your email for OTP.');
-            navigate('/verify-otp', { state: { email: formData.email } });
+            toast.success('Registration successful! Please sign in.');
+            navigate('/login');
         } catch (error: any) {
             toast.error(error.response?.data?.message || 'Signup failed');
         } finally {

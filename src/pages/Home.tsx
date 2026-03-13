@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Shield, Brain, Calendar, Clock, ArrowRight, UserPlus, LogIn, Github, Activity, HeartPulse, Stethoscope, Eye, Bone, Baby, LogOut, LayoutDashboard } from 'lucide-react';
+import { Shield, Brain, Calendar, Clock, ArrowRight, Github, Activity, HeartPulse, Stethoscope, Eye, Bone, Baby, LogOut, LayoutDashboard } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { motion } from 'framer-motion';
 
@@ -39,7 +39,7 @@ const Home = () => {
             <motion.nav
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                className="navbar container pt-6 pb-4"
+                className="navbar container pt-4 sm:pt-6 pb-4 flex-wrap gap-y-4"
             >
                 <div className="logo flex items-center gap-3">
                     <div className="logo-icon-wrap bg-gradient-to-br from-primary to-secondary p-2.5 rounded-xl shadow-lg shadow-primary/20">
@@ -47,23 +47,23 @@ const Home = () => {
                     </div>
                     <span className="text-2xl font-bold tracking-tight text-white">Schedula<span className="text-primary">.</span></span>
                 </div>
-                <div className="nav-links flex gap-4">
+                <div className="nav-links flex gap-2 sm:gap-4 flex-wrap justify-end">
                     {user ? (
                         <>
-                            <Link to={user.role === 'PATIENT' ? '/patient' : '/doctor'} className="btn btn-outline hover:bg-white/5 border-white/10 text-white flex items-center gap-2">
-                                <LayoutDashboard size={18} /> Dashboard
+                            <Link to={user.role === 'PATIENT' ? '/patient' : '/doctor'} className="btn btn-outline hover:bg-white/5 border-white/10 text-white flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm">
+                                <LayoutDashboard size={14} className="sm:w-[18px]" /> Dashboard
                             </Link>
-                            <button onClick={logout} className="btn btn-primary shadow-lg shadow-primary/30 flex items-center gap-2">
-                                <LogOut size={18} /> Sign Out
+                            <button onClick={logout} className="btn btn-primary shadow-lg shadow-primary/30 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm">
+                                <LogOut size={14} className="sm:w-[18px]" /> Sign Out
                             </button>
                         </>
                     ) : (
                         <>
-                            <Link to="/login" className="btn btn-outline hover:bg-white/5 border-white/10 text-white">
-                                <LogIn size={18} /> Sign In
+                            <Link to="/login" className="btn btn-outline hover:bg-white/5 border-white/10 text-white px-3 sm:px-4 py-2 text-xs sm:text-sm">
+                                Sign In
                             </Link>
-                            <Link to="/signup" className="btn btn-primary shadow-lg shadow-primary/30">
-                                <UserPlus size={18} /> Join Now
+                            <Link to="/signup" className="btn btn-primary shadow-lg shadow-primary/30 px-3 sm:px-4 py-2 text-xs sm:text-sm">
+                                Join Now
                             </Link>
                         </>
                     )}
@@ -408,9 +408,13 @@ const Home = () => {
           .hero-content { margin-right: auto; }
         }
         @media (max-width: 768px) {
-          .hero { flex-direction: column; text-align: center; }
-          .hero-description { margin-left: auto; margin-right: auto; }
-          .hero-buttons { justify-content: center; }
+          .hero { flex-direction: column; text-align: center; padding-top: 3rem; padding-bottom: 4rem; }
+          .hero-title { font-size: 2.5rem; }
+          .hero-description { margin-left: auto; margin-right: auto; font-size: 1rem; }
+          .hero-buttons { justify-content: center; flex-direction: column; width: 100%; }
+          .hero-buttons .btn { width: 100%; justify-content: center; }
+          .navbar { justify-content: center; flex-direction: column; }
+          .nav-links { width: 100%; justify-content: center; }
         }
       `}</style>
         </div>
