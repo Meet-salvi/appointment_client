@@ -10,16 +10,13 @@ import ForgotPassword from './pages/ForgotPassword';
 import PatientDashboard from './pages/PatientDashboard';
 import DoctorDashboard from './pages/DoctorDashboard';
 import Unauthorized from './pages/Unauthorized';
+import Preloader from './components/Preloader';
 
 function App() {
   const { user, loading } = useAuth();
 
   if (loading) {
-    return (
-      <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div className="loader">Loading...</div>
-      </div>
-    );
+    return <Preloader />;
   }
 
   return (
