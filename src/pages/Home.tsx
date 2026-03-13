@@ -45,7 +45,7 @@ const Home = () => {
                     <div className="logo-icon-wrap bg-gradient-to-br from-primary to-secondary p-2.5 rounded-xl shadow-lg shadow-primary/20">
                         <Activity className="text-white" size={24} />
                     </div>
-                    <span className="text-2xl font-bold tracking-tight text-white">Schedula<span className="text-primary">.</span></span>
+                    <span className="text-2xl font-bold tracking-tight text-white">MedPulse<span className="text-primary">.</span></span>
                 </div>
                 <div className="nav-links flex gap-2 sm:gap-4 flex-wrap justify-end">
                     {user ? (

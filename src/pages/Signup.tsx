@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Mail, Lock, User, Phone, Brain, Activity } from 'lucide-react';
+import { Mail, Lock, User, Phone, Activity } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 import api from '../services/api';
 import { motion } from 'framer-motion';
@@ -50,9 +50,9 @@ const Signup = () => {
                 <div className="flex justify-center mb-8">
                     <Link to="/" className="flex items-center gap-2 group">
                         <div className="bg-primary/20 p-2 rounded-xl group-hover:bg-primary/30 transition-colors">
-                            <Brain className="text-primary" size={28} />
+                            <Activity className="text-primary" size={28} />
                         </div>
-                        <span className="text-2xl font-bold tracking-tight">Schedula<span className="text-primary">.</span></span>
+                        <span className="text-2xl font-bold tracking-tight">MedPulse<span className="text-primary">.</span></span>
                     </Link>
                 </div>
 

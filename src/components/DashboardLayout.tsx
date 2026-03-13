@@ -26,7 +26,7 @@ const DashboardLayout: React.FC<{ children: React.ReactNode, items: SidebarItem[
     const location = useLocation();
 
     const notifications = [
-        { id: 1, title: 'Welcome to Schedula', message: 'Your health journey starts here! Explore our features.', time: 'Just now', type: 'info' },
+        { id: 1, title: 'Welcome to MedPulse', message: 'Your health journey starts here! Explore our features.', time: 'Just now', type: 'info' },
     ];
 
     const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
@@ -78,7 +78,7 @@ const DashboardLayout: React.FC<{ children: React.ReactNode, items: SidebarItem[
                         <div className="bg-primary/20 p-2 rounded-xl shrink-0">
                             <Activity className="text-primary" size={24} />
                         </div>
-                        {sidebarOpen && <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="font-bold text-xl whitespace-nowrap">Schedula<span className="text-primary">.</span></motion.span>}
+                        {sidebarOpen && <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="font-bold text-xl whitespace-nowrap">MedPulse<span className="text-primary">.</span></motion.span>}
                     </div>
                 </div>
 
