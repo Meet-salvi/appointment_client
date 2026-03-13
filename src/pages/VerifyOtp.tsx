@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { MailCheck, CheckCircle, RefreshCcw } from 'lucide-react';
+import { MailCheck, RefreshCcw } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 import api from '../services/api';
 import { motion } from 'framer-motion';
