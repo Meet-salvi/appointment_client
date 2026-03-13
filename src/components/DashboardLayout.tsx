@@ -21,8 +21,13 @@ interface SidebarItem {
 const DashboardLayout: React.FC<{ children: React.ReactNode, items: SidebarItem[] }> = ({ children, items }) => {
     const [sidebarOpen, setSidebarOpen] = useState(true);
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [notificationsOpen, setNotificationsOpen] = useState(false);
     const { user, logout } = useAuth();
     const location = useLocation();
+
+    const notifications = [
+        { id: 1, title: 'Welcome to Schedula', message: 'Your health journey starts here! Explore our features.', time: 'Just now', type: 'info' },
+    ];
 
     const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
@@ -130,9 +135,62 @@ const DashboardLayout: React.FC<{ children: React.ReactNode, items: SidebarItem[
                         </h2>
                     </div>
                     <div className="header-actions flex items-center gap-3 sm:gap-6">
-                        <div className="relative group p-2 hover:bg-white/5 rounded-full cursor-pointer transition">
-                            <Bell size={20} className="text-muted group-hover:text-primary transition-colors" />
-                            <span className="notification-badge bg-error w-2.5 h-2.5 absolute top-1 right-2 rounded-full border-2 border-[#0B0E14] shadow-sm shadow-error/50"></span>
+                        <div className="relative">
+                            <button 
+                                onClick={() => setNotificationsOpen(!notificationsOpen)}
+                                className={`p-2 hover:bg-white/5 rounded-full cursor-pointer transition relative group ${notificationsOpen ? 'bg-white/10 text-primary' : 'text-muted'}`}
+                            >
+                                <Bell size={20} className="group-hover:text-primary transition-colors" />
+                                {notifications.length > 0 && (
+                                    <span className="notification-badge bg-error w-2.5 h-2.5 absolute top-1 right-2 rounded-full border-2 border-[#0B0E14] shadow-sm shadow-error/50"></span>
+                                )}
+                            </button>
+
+                            {/* Notifications Dropdown */}
+                            <AnimatePresence>
+                                {notificationsOpen && (
+                                    <>
+                                        <div className="fixed inset-0 z-40" onClick={() => setNotificationsOpen(false)}></div>
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                                            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                            className="absolute right-0 mt-2 w-80 bg-[#0F131A] border border-white/10 rounded-2xl shadow-2xl z-50 overflow-hidden"
+                                        >
+                                            <div className="p-4 border-b border-white/5 bg-white/[0.02] flex justify-between items-center">
+                                                <h3 className="font-bold text-sm">Notifications</h3>
+                                                <span className="text-[10px] bg-primary/20 text-primary-light px-2 py-0.5 rounded-full font-bold uppercase">{notifications.length} New</span>
+                                            </div>
+                                            <div className="max-h-80 overflow-y-auto custom-scrollbar">
+                                                {notifications.length === 0 ? (
+                                                    <div className="p-8 text-center flex flex-col items-center gap-2">
+                                                        <Bell size={24} className="text-muted/30" />
+                                                        <p className="text-xs text-muted">All caught up!</p>
+                                                    </div>
+                                                ) : (
+                                                    notifications.map(n => (
+                                                        <div key={n.id} className="p-4 hover:bg-white/[0.03] border-b border-white/5 transition-colors cursor-pointer group/notif">
+                                                            <div className="flex gap-3">
+                                                                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                                                                    <Activity size={14} className="text-primary-light" />
+                                                                </div>
+                                                                <div className="flex-1">
+                                                                    <p className="text-sm font-bold text-white group-hover/notif:text-primary-light transition-colors">{n.title}</p>
+                                                                    <p className="text-xs text-muted mt-1 leading-relaxed">{n.message}</p>
+                                                                    <p className="text-[10px] text-muted/50 mt-2 font-mono">{n.time}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    ))
+                                                )}
+                                            </div>
+                                            <div className="p-3 bg-white/[0.01] text-center border-t border-white/5">
+                                                <button className="text-[11px] font-bold text-primary hover:text-primary-light uppercase tracking-wider">Mark all as read</button>
+                                            </div>
+                                        </motion.div>
+                                    </>
+                                )}
+                            </AnimatePresence>
                         </div>
                         <div className="user-profile flex items-center gap-3 pl-3 sm:pl-4 border-l border-white/10 relative group cursor-pointer">
                             <div className="text-right hidden sm:block pt-1">
