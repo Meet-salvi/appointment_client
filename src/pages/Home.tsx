@@ -411,19 +411,22 @@ const Home = () => {
           .hero { 
             flex-direction: column; 
             text-align: center; 
-            padding-top: 2rem; 
-            padding-bottom: 3rem; 
-            gap: 2rem;
+            padding-top: 5rem; 
+            padding-bottom: 5rem; 
+            gap: 2.5rem;
+            min-height: calc(100vh - 100px);
+            justify-content: center;
           }
           .hero-title { 
             font-size: clamp(2rem, 10vw, 3rem); 
             line-height: 1.1;
+            margin-bottom: 1.5rem;
           }
           .hero-description { 
             margin-left: auto; 
             margin-right: auto; 
             font-size: 1rem; 
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
           }
           .hero-buttons { 
             justify-content: center; 
@@ -439,6 +442,8 @@ const Home = () => {
           .navbar { 
             justify-content: space-between; 
             flex-direction: row;
+            padding-top: 2rem !important;
+            padding-bottom: 1rem;
             padding-left: 1rem;
             padding-right: 1rem;
           }
@@ -451,8 +456,12 @@ const Home = () => {
           }
         }
         @media (max-width: 480px) {
+          .hero {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+          }
           .hero-title {
-            font-size: 1.8rem;
+            font-size: 1.85rem;
           }
           .navbar .logo span {
             display: none;
