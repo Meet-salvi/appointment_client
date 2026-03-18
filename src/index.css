@@ -69,12 +69,16 @@ h6 {
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 8vw, 3.5rem);
   font-weight: 800;
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 6vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 5vw, 1.75rem);
 }
 
 a {
@@ -130,7 +134,13 @@ select option {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 1.5rem;
+  }
 }
 
 /* Glassmorphism Classes */
@@ -145,10 +155,16 @@ select option {
 .card {
   background: var(--bg-card);
   border-radius: 16px;
-  padding: 2rem;
+  padding: 1.25rem;
   box-shadow: var(--shadow);
   border: 1px solid var(--border);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: 2rem;
+  }
 }
 
 .card:hover {

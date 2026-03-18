@@ -408,13 +408,55 @@ const Home = () => {
           .hero-content { margin-right: auto; }
         }
         @media (max-width: 768px) {
-          .hero { flex-direction: column; text-align: center; padding-top: 3rem; padding-bottom: 4rem; }
-          .hero-title { font-size: 2.5rem; }
-          .hero-description { margin-left: auto; margin-right: auto; font-size: 1rem; }
-          .hero-buttons { justify-content: center; flex-direction: column; width: 100%; }
-          .hero-buttons .btn { width: 100%; justify-content: center; }
-          .navbar { justify-content: center; flex-direction: column; }
-          .nav-links { width: 100%; justify-content: center; }
+          .hero { 
+            flex-direction: column; 
+            text-align: center; 
+            padding-top: 2rem; 
+            padding-bottom: 3rem; 
+            gap: 2rem;
+          }
+          .hero-title { 
+            font-size: clamp(2rem, 10vw, 3rem); 
+            line-height: 1.1;
+          }
+          .hero-description { 
+            margin-left: auto; 
+            margin-right: auto; 
+            font-size: 1rem; 
+            margin-bottom: 2rem;
+          }
+          .hero-buttons { 
+            justify-content: center; 
+            flex-direction: column; 
+            width: 100%; 
+            gap: 1rem;
+          }
+          .hero-buttons .btn { 
+            width: 100%; 
+            justify-content: center; 
+            padding: 1rem;
+          }
+          .navbar { 
+            justify-content: space-between; 
+            flex-direction: row;
+            padding-left: 1rem;
+            padding-right: 1rem;
+          }
+          .nav-links { 
+            gap: 0.5rem;
+          }
+          .nav-links .btn {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.75rem;
+          }
+        }
+        @media (max-width: 480px) {
+          .hero-title {
+            font-size: 1.8rem;
+          }
+          .navbar .logo span {
+            display: none;
+          }
         }
       `}</style>
         </div>

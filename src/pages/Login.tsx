@@ -196,11 +196,21 @@ const Login = () => {
         .border-primary\\/20 { border-color: rgba(20, 184, 166, 0.2); }
         .text-gray-300 { color: #d1d5db; }
         
-        .hover\\:underline:hover { text-decoration: underline; }
-        .underline-offset-4 { text-underline-offset: 4px; }
-        .transition-colors { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
-        .focus\\:ring-2:focus { --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color); --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color); box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000); }
-        .ring-primary\\/20 { --tw-ring-color: rgba(20, 184, 166, 0.2); }
+        @media (max-width: 480px) {
+          .auth-wrapper {
+            padding: 1rem;
+          }
+          .card {
+            padding: 1.5rem !important;
+          }
+          .text-3xl {
+            font-size: 1.5rem;
+          }
+          .auth-wrapper > div:not(.relative) {
+            width: 80%;
+            height: 80%;
+          }
+        }
       `}</style>
         </div>
     );

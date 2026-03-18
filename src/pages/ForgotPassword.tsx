@@ -247,11 +247,17 @@ const ForgotPassword = () => {
         .border-white\\/5 { border-color: rgba(255, 255, 255, 0.05); }
         .border-white\\/10 { border-color: rgba(255, 255, 255, 0.1); }
         .text-gray-300 { color: #d1d5db; }
-        .hover\\:underline:hover { text-decoration: underline; }
-        .underline-offset-4 { text-underline-offset: 4px; }
-        .transition-colors { transition-property: color, background-color, border-color; transition-duration: 150ms; }
-        .transition-all { transition: all 500ms; }
-        .duration-500 { transition-duration: 500ms; }
+        @media (max-width: 480px) {
+          .auth-wrapper {
+            padding: 1rem;
+          }
+          .card {
+            padding: 1.5rem !important;
+          }
+          .text-2xl {
+            font-size: 1.25rem;
+          }
+        }
       `}</style>
         </div>
     );

@@ -107,9 +107,21 @@ const VerifyOtp = () => {
         .animate-spin {
           animation: spin 1s linear infinite;
         }
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
+        @media (max-width: 480px) {
+          .auth-wrapper {
+            padding: 1rem;
+          }
+          .card {
+            padding: 1.5rem !important;
+          }
+          .text-2xl {
+            font-size: 1.25rem;
+          }
+          .otp-input {
+            letter-spacing: 0.5rem;
+            font-size: 1.5rem;
+            height: 3.5rem;
+          }
         }
       `}</style>
         </div>
